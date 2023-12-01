@@ -1,0 +1,85 @@
+name:                aoc23
+version:             0.1.0.0
+github:              "mvaldesdeleon/aoc23"
+license:             BSD3
+author:              "Martin Valdes de Leon"
+maintainer:          "m.valdesdeleon@gmail.com"
+copyright:           "Copyright (c) 2023 Martin Valdes de Leon"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+data-files:
+- inputs/*.txt
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/mvaldesdeleon/aoc23#readme>
+
+language: Haskell2010
+dependencies:
+- base >= 4.7 && < 5
+- relude
+- optparse-applicative
+- req
+- directory
+- bytestring
+- attoparsec
+- containers
+- lens
+- array
+- template-haskell
+- mtl
+- vector
+- monad-loops
+- split
+- pqueue
+
+ghc-options:
+#- -Wall
+- -Wcompat
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wredundant-constraints
+
+default-extensions:
+- NoImplicitPrelude
+- OverloadedStrings
+- LambdaCase
+- NoImportQualifiedPost
+
+library:
+  source-dirs: src
+  generated-other-modules: Paths_aoc23
+
+executables:
+  aoc23:
+    main:                Aoc23Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Aoc23Main
+    - -O2
+    dependencies:
+    - aoc23
+    other-modules:
+    - Paths_aoc23
+
+tests:
+  aoc23-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - aoc23

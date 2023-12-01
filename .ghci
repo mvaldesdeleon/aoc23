@@ -1,0 +1,8 @@
+:set -XNoImplicitPrelude
+import Relude
+:def hoogle \x -> return $ ":!stack hoogle -- \"" ++ x ++ "\""
+:def doc \x -> return $ ":!stack hoogle -- --info \"" ++ x ++ "\""
+:set -fwarn-unused-binds -fwarn-unused-imports
+:set -isrc
+:set prompt "λ> "
+:set prompt-cont "   | "

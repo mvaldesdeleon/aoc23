@@ -1,0 +1,10 @@
+.stack-work/
+.vscode/
+aoc23.cabal
+src/Session.hs
+sample/
+*~
+*.hi
+*.o
+*.dyn*
+.DS_Store
