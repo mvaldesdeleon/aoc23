@@ -8,25 +8,8 @@ import Data.Foldable (foldl)
 import qualified Data.Text as T
 import Relude
 
-digits :: [(Text, Text)]
-digits =
-  [ ("one", "1"),
-    ("two", "2"),
-    ("three", "3"),
-    ("four", "4"),
-    ("five", "5"),
-    ("six", "6"),
-    ("seven", "7"),
-    ("eight", "8"),
-    ("nine", "9")
-  ]
-
 replaceDigits :: Text -> Text
 replaceDigits = fromString . replaceDigits' . T.unpack
-
--- replaceDigits input = foldl replaceDigit input digits
---   where
---     replaceDigit input (source, target) = T.replace source target input
 
 replaceDigits' :: String -> String
 replaceDigits' ('o' : 'n' : 'e' : rest) = '1' : replaceDigits' ('e' : rest)
